@@ -8,6 +8,7 @@ var repliesForBye = ["Catch you on the flip side!", "Bye-bye, butterfly.", "See 
 var repliesForLove = ["I get that a lot!", "You are day-dreaming again!", "I love You........Tube! LOL!", "Are you sure you aren't sick or something?", "I love you too!", "You are not my type!", "❤️"];
 var repliesforennapanra = ["Saptutu irukaen<br> Nee saptiya?", "summa thaan irukaen<br>sariyana boring ah iruku<br> sari unaku enna venum<br> sollu?", "dance aditu irukaen", "Etho panren unnaku enna?!", "unna pathi thaan<br>think panitu irukaen❤️"];
 var repliesForCommandUnknown = ["Hey I couldn't catch you....<br>Send 'help' to know more about usage.", "I didn't get it.", "Please can you repeat it?", "I'm still learning...please use approriate keywords in your phrase.", "I'm still working on it.<br>"];
+var repliesForfeelingdown = ["vidu namakum oru <br> time varum <br> appo ellam change agum", "ethayum nenachu worry <br> panikkatha focus on your goal", "En da enna achu?", "oru problem varuthuna antha <br> problem namba peace ah <br> kedukurathuku munadi sortout panidu", "vidu feel panatha <br> namaku pudicha mathri <br> life oru naal maarum"];
 
 
 function getRandom(arrayOfReplies) {
@@ -144,10 +145,13 @@ function ifElseThenAndExecute(textString) {
         sendTextMessage(getRandom(repliesForHowAreYou));
     } else if (textString.includes("you know") && (textString.includes("bixby") || textString.includes("siri") || textString.includes("alexa") || textString.includes("cortana"))) {
         // reply for 'you know other chattingBots' request
-        sendTextMessage(getRandom(repliesforennapanra));
-    } else if (textString.includes("enna panra") && (textString.includes("enna panra") || textString.includes("enna pannitu iruka") || textString.includes("enna pudungitu iruka") || textString.includes("enna senjutu iruka"))) {
-        // reply for 'enna panra' request
         sendTextMessage(getRandom(repliesForVoiceAssistants));
+    } else if (textString.includes("enna panra") && (textString.includes("what are you doing") || textString.includes("enna pannitu iruka") || textString.includes("enna pudungitu iruka") || textString.includes("enna senjutu iruka"))) {
+        // reply for 'enna panra' request
+        sendTextMessage(getRandom(repliesforennapanra));
+    } else if (textString.includes("feeling down") || (textString.includes("Demotivated ah iruku") || textString.includes("stress ah iruku") || textString.includes("ore down ah feel panren") || textString.includes("manasu kastama iruku") || textString.includes("ore pressure ah iruku"))) {
+        // reply for 'Feeling down' request
+        sendTextMessage(getRandom(repliesForfeelingdown));
     } else {
         setTimeout(() => {
             sendTextMessage(getRandom(repliesForCommandUnknown));
